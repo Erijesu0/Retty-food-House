@@ -236,8 +236,9 @@
     grid-row: 1;
   }
 }
+
 /* Below 544px (phones)*/
-@media (max-width: 34em) {
+@media (max-width: 768px) {
   .parent--1,
   .parent--2,
   .parent--4 {
@@ -303,6 +304,16 @@
     height: 32rem;
     grid-row: 1;
   }
+  .meals-grid-clm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4.8rem;
+    padding: 4.2rem;
+  }
+
+  .meal-grid-clm {
+    padding: 1.5rem;
+  }
 }
 /****************************/
 /* Fixing Safari Browser*/
@@ -354,5 +365,88 @@
   .no-flexbox-gap .main-nav-list li:not(:last-child) {
     margin-right: 0;
     margin-bottom: 4.8rem;
+  }
+}
+
+/* claude code*/
+/* Tablet — stack into 2 columns */
+@media (max-width: 768px) {
+  .meal-grid-clm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .diets {
+    grid-column: 1 / -1; /* diets list spans full width */
+  }
+}
+
+/* Mobile — single column, everything stacks */
+@media (max-width: 480px) {
+  .meal-grid-clm {
+    grid-template-columns: 1fr;
+  }
+
+  .diets {
+    grid-column: 1;
+  }
+
+  .meal-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .meal {
+    width: 100%;
+  }
+}
+/*  pricing*/
+/* Tablet — narrow the cards but keep side by side */
+@media (max-width: 768px) {
+  .parent--2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  .plan-price {
+    font-size: 4.8rem;
+  }
+}
+
+/* Mobile — stack cards on top of each other */
+@media (max-width: 480px) {
+  .parent--2 {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+  }
+
+  .pricing-plan--starter,
+  .pricing-plan-complete {
+    width: 100%;
+    padding: 3.2rem;
+    border-radius: 12px;
+  }
+
+  .plan-header {
+    text-align: center;
+    margin-bottom: 2.4rem;
+  }
+
+  .plan-price {
+    font-size: 4rem;
+  }
+
+  .plan-sign-up {
+    margin-top: 2.4rem;
+    text-align: center;
+  }
+
+  .plan-sign-up .btn {
+    width: 100%;
+    display: block;
+    text-align: center;
   }
 }
